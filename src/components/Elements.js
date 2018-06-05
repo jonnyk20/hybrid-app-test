@@ -4,16 +4,6 @@ import { Button } from 'react-native-elements';
 import iconFont from 'react-native-vector-icons/Fonts/FontAwesome.ttf';
 
 let Icon;
-// import Icon from 'react-native-vector-icons/dist/FontAwesome';
-
-// if (Platform.OS === 'android' || Platform.OS === 'ios') {
-//   // import { Ionicons as Icon } from '@expo/vector-icons';
-//   Icon = require('@expo/vector-icons').Ionicons;
-// } else {
-//   // import Icon from 'react-native-vector-icons/dist/FontAwesome';
-//   Icon = require('react-native-vector-icons/dist/FontAwesome');
-// }
-// console.log('Platform.OS', Platform.OS)
 
 let iconFontStyles;
 // Create stylesheet
@@ -34,6 +24,8 @@ if (Platform.OS === 'web') {
 
   // Inject stylesheet
   document.head.appendChild(style);
+} else {
+  Icon = require('@expo/vector-icons').Ionicons
 }
 
 
@@ -50,7 +42,7 @@ class Elements extends Component {
         </Text>
         <View style={styles.container}>
           {/* <Icon name="rocket" size={30} color="#900" /> */}
-          {/* <Icon name="home" size={32} color="green" /> */}
+          <Icon name="md-home" size={32} color="green" />
           {
             Platform.OS === 'web' &&
             <Icon name="rocket" size={30} color="#900" />
