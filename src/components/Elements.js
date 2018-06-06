@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements';
-import iconFont from 'react-native-vector-icons/Fonts/FontAwesome.ttf';
 import Icon from './Icon'
 
 
-console.log(Platform.OS)
 class Elements extends Component {
   render() {
     return (
       <View style={styles.app}>
         <View style={styles.appHeader}>
-          <Text style={styles.appTitle}>Welcome to React ⚛️</Text>
+          <Text style={styles.appTitle}>Welcome to React</Text>
         </View>
         <Text style={styles.appIntro}>
           Testing my Hybrid App
         </Text>
         <View style={styles.container}>
-          {
-            // Show this icon on mobile
-            Platform.OS !== 'web' &&
-            <Icon name="home" />
-          }
-          {
-            // Show this icon on The web
-            Platform.OS === 'web' &&
-            <Icon name="home" />
-          }
+          <Icon name="home" />
           <Button
             raised
             buttonStyle={{ backgroundColor: '#ff4f00', borderRadius: 10 }}

@@ -1,10 +1,7 @@
-import React from 'react';
-import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import iconFont from 'react-native-vector-icons/Fonts/FontAwesome.ttf';
 
 
-console.log('web icon', Icon)
 const iconFontStyles = `@font-face {
   src: url(${iconFont});
   font-family: FontAwesome;
