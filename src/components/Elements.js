@@ -2,31 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native'
 import { Button } from 'react-native-elements';
 import iconFont from 'react-native-vector-icons/Fonts/FontAwesome.ttf';
-
-let Icon;
-
-let iconFontStyles;
-// Create stylesheet
-if (Platform.OS === 'web') {
-  Icon = require('react-native-vector-icons/dist/FontAwesome').default;
-  console.log('Icon', Icon)
-  iconFontStyles = `@font-face {
-    src: url(${iconFont});
-    font-family: FontAwesome;
-  }`;
-  const style = document.createElement('style');
-  style.type = 'text/css';
-  if (style.styleSheet) {
-    style.styleSheet.cssText = iconFontStyles;
-  } else {
-    style.appendChild(document.createTextNode(iconFontStyles));
-  }
-
-  // Inject stylesheet
-  document.head.appendChild(style);
-} else {
-  // Icon = require('@expo/vector-icons').Ionicons
-}
+import Icon from './Icon'
 
 
 console.log(Platform.OS)
@@ -43,12 +19,13 @@ class Elements extends Component {
         <View style={styles.container}>
           {
             // Show this icon on mobile
-            <Icon name="md-home" size={32} color="green" />
+            Platform.OS !== 'web' &&
+            <Icon name="home" />
           }
           {
             // Show this icon on The web
             Platform.OS === 'web' &&
-            <Icon name="rocket" size={30} color="#900" />
+            <Icon name="home" />
           }
           <Button
             raised
