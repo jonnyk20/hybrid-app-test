@@ -25,7 +25,7 @@ if (Platform.OS === 'web') {
   // Inject stylesheet
   document.head.appendChild(style);
 } else {
-  Icon = require('@expo/vector-icons').Ionicons
+  // Icon = require('@expo/vector-icons').Ionicons
 }
 
 
@@ -41,9 +41,12 @@ class Elements extends Component {
           Testing my Hybrid App
         </Text>
         <View style={styles.container}>
-          {/* <Icon name="rocket" size={30} color="#900" /> */}
-          <Icon name="md-home" size={32} color="green" />
           {
+            // Show this icon on mobile
+            <Icon name="md-home" size={32} color="green" />
+          }
+          {
+            // Show this icon on The web
             Platform.OS === 'web' &&
             <Icon name="rocket" size={30} color="#900" />
           }
